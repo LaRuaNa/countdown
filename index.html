@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coutdown</title>
+  <!-- JS -->
+  <script src="https://unpkg.com/vue"></script>
+  <script src="./src/js/main.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/normalize.css">
+  <link rel="stylesheet" href="./assets/css/skeleton.css">
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="content">
+    <div>
+      <canvas ref="minutesCircle"
+        v-on:mousemove="followMouseMinutes && updateMinutesPosition($event)"
+        v-on:click="followMouseMinutes = !followMouseMinutes && !counterStarted"
+        id="minutes"
+        width="300"
+        height="300">
+      </canvas>
+
+      <canvas ref="secondsCircle"
+        v-on:mousemove="followMouseSeconds && updateSecondsPosition($event)"
+        v-on:click="followMouseSeconds = !followMouseSeconds && !counterStarted"
+        id="seconds"
+        width="300"
+        height="300">
+      </canvas>
+    </div>
+
+    <div class="controls">
+     <button class="circle grey" v-on:click="resetCounter();" >
+        <i class="material-icons md-dark md-24">replay</i>
+      </button>
+
+       <button class="circle" v-if="!counterStarted"
+                v-on:click="startCounter();" >
+        <i class="material-icons md-light md-24">play_arrow</i>
+      </button>
+
+      <button class="circle" v-if="counterStarted"
+                v-on:click="pauseCounter();" >
+        <i class="material-icons md-light md-24">pause</i>
+      </button>
+
+      <button class="circle grey" v-on:click="stopCounter();" >
+        <i class="material-icons md-dark md-24">stop</i>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

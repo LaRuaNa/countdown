@@ -1,0 +1,20 @@
+{
+  "name": "Coutdown",
+  "version": "1.0.0",
+  "description": "Fancy Timer",
+  "license": "MIT",
+  "author": "LaRuaNa",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint src/js/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.0",
+    "eslint-plugin-react": "^7.1.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0"
+  },
+  "dependencies": {}
+}
